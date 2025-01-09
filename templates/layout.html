@@ -1,10 +1,50 @@
-<!DOCTYPE html>
+<!Doctype html>
+{% load static %}
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            BLD tutorials
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
+    <nav>
+        <div id="left-menu">
+            <a href="/">
+                <span role="img" aria-label="Home" title="Home">🏠</span>
+            </a> 
+            <a href="{% url 'blogs' %}">
+                <span role="img" aria-label="3BLD" title="3BLD course" class="cubing-icon event-333bf icon"></span>
+            </a>
+            <a href="/course/BLD4">
+                <span role="img" aria-label="4BLD" title="4BLD course" class="cubing-icon event-444bf icon"></span>
+            </a>
+            <a href="/course/BLD5">
+                <span role="img" aria-label="5BLD" title="5BLD course" class="cubing-icon event-555bf icon"></span>
+            </a>
+        </div>    
+        <div id="right-menu">
+            {% if user.is_authenticated %}
+                <form class="logout" action="/users/logout" method="post">
+                    {% csrf_token %}
+                    <button class = "logout-button" aria-label="logout" title="logout">🚪</button>
+                </form>
+            {% else %}
+                <a href="/users/register" class = right-icon id="key">
+                    <span role="img" aria-label="register" title="register a new account">🔑</span>
+                </a>
+                <a href="/users/login">
+                    <span role="img" aria-label="login" title="login">🔐</span>
+                </a>
+            {% endif %}
+        </div>    
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
-</html>
