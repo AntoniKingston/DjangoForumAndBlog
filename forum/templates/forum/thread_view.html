@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block title %}
+    {{ thread.title }}
+{% endblock %}
+{% block content %}
+    {% for post in posts %}
+        <p>{{ post.content }}</p>
+        <p>{{ post.author }}</p>
+    {% endfor %}
+{% endblock %}

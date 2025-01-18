@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Forum Romanum
+{% endblock %}
+{% block content %}
+    <h1>Niech się dzieje wola czeluści piekielnych, nie mogę znaleźć rymu, poskładaj nieco ofiar kadzielnych. (poniżej fora)</h1>
+    {% for thread in threads %}
+        <h1>
+            <a href = "{% url 'thread' slug=thread.slug %}">{{ thread.title }}</a>
+        </h1>
+        <p>
+        {{ thread.creator }}
+        </p>
+    {% endfor %}
+{% endblock %}

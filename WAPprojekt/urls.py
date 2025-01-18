@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.homepage),
     path('course/', include('course.urls')),
     path('users/', include('users.urls')),
-    path('blogs/', include('blogs.urls'))
+    path('blogs/', include('blogs.urls')),
+    path('forum/', include('forum.urls'))
 ]
