@@ -13,4 +13,11 @@
             </p>
         {% endfor %}
     </section>
+    {% if in_authors %}
+            <form class="form-with-validation" action="{% url 'blog' slug=blog.slug %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button>Create a post</button>
+            </form>
+    {% endif %}
 {% endblock %}

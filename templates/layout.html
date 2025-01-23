@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         {% block title %}
-            BLD tutorials
+            Random blog and forum, no special flavour at all
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <nav>
@@ -18,13 +18,10 @@
                 <span role="img" aria-label="Home" title="Home">🏠</span>
             </a> 
             <a href="{% url 'blogs' %}">
-                <span role="img" aria-label="3BLD" title="3BLD course" class="cubing-icon event-333bf icon"></span>
+                <span role="img" aria-label="blog" title="blog">📋</span>
             </a>
             <a href="{% url 'forum' %}">
-                <span role="img" aria-label="4BLD" title="4BLD course" class="cubing-icon event-444bf icon"></span>
-            </a>
-            <a href="/course/BLD5">
-                <span role="img" aria-label="5BLD" title="5BLD course" class="cubing-icon event-555bf icon"></span>
+                <span role="img" aria-label="forum" title="forum">🗣️</span>
             </a>
         </div>    
         <div id="right-menu">
@@ -41,10 +38,18 @@
                     <span role="img" aria-label="login" title="login">🔐</span>
                 </a>
             {% endif %}
-        </div>    
+        </div>
     </nav>
     <main>
         {% block content %}
         {% endblock %}
     </main>
+    <p>
+        </p>
+    <footer>
+        {% if user.is_authenticated %}
+        logged in as: {{user.username}}
+            {% endif %}
+        © 2025 Anton von Königstein
+    </footer>
 </body>

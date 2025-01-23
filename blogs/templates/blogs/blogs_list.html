@@ -3,8 +3,7 @@
     Blogs list
 {% endblock %}
 {% block content %}
-    <section>
-        <h1>Tutaj się blogi powyświetlają</h1>
+        <h1>Blogs</h1>
         {% for blog in blogs %}
             <h2>
             <a href="{% url 'blog' slug=blog.slug %}">
@@ -13,5 +12,15 @@
             </h2>
             <p>{{ blog.authors_list}}</p>
         {% endfor %}
-    </section>
+    {% if user.is_authenticated %}
+        <form class="form-with-validation" action="{% url 'blogs' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class = "form-submit">Create a blog</button>
+        </form>
+    {% else %}
+        <h3>You need to be logged in in order to create a blog</h3>
+        <button class = form-submit onclick="window.location.href='/users/login';">log in</button>
+
+    {% endif %}
 {% endblock %}

@@ -12,4 +12,9 @@
             <p> {{ comment.content }}</p>
         {% endfor %}
     </section>
+    <form class="form-with-validation" action="{% url 'post' slug=post.blog.slug slug2=post.slug %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button>Comment</button>
+    </form>
 {% endblock %}

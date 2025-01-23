@@ -1,11 +1,21 @@
 {% extends 'layout.html' %}
+{% load static %}
 {% block title %}
     Homepage
 {% endblock %}
 {% block content %}
-    <h1>Courses</h1>
-    <p>3BLD</p>
-    <p>4BLD</p>
-    <p>5BLD</p>
-    <p>memorisation</p>
+    <div id="dwoch-typow">
+        <div>
+            <h1>Blogs</h1>
+            <a href="{% url 'blogs' %}">
+                <img src = "{% static 'media/stalijepegie.jpg' %}">
+            </a>
+        </div>
+        <div>
+            <h1>Forum</h1>
+            <a href="{% url 'forum' %}">
+                <img src = "{% static 'media/leninie.jpg' %}">
+            </a>
+        </div>
+    </div>
 {% endblock %}

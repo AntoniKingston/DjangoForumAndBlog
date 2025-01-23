@@ -12,4 +12,14 @@
         {{ thread.creator }}
         </p>
     {% endfor %}
+    {% if user.is_authenticated %}
+        <form class="form-with-validation" action="{% url 'forum' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="form-submit">Create new thread</button>
+        </form>
+    {% else %}
+        <h3>You need to be logged in in order to create a thread</h3>
+        <button class = form-submit onclick="window.location.href='/users/login';">log in</button>
+    {% endif %}
 {% endblock %}

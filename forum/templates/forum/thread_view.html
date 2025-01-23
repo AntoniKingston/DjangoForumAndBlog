@@ -7,4 +7,9 @@
         <p>{{ post.content }}</p>
         <p>{{ post.author }}</p>
     {% endfor %}
+    <form class="form-with-validation" action="{% url 'thread' slug=thread.slug %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button>Reply</button>
+    </form>
 {% endblock %}
