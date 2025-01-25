@@ -1,13 +1,9 @@
 {% extends 'layout.html' %}
-{% block title %}
-    Registration
-{% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <h1>Register a new user</h1>
-    <form class = "form-with-validation" action="/users/register" method="post">
-    {%  csrf_token %}
-    {{ form }}
-    <button class="form-submit">Submit</button>
-    </form>
-
-{% endblock %}
+        <form class = "form-with-validation" method="POST">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <button class = "form-submit">Register</button>
+        </form>
+{% endblock content %}

@@ -3,11 +3,11 @@
     Forum Romanum
 {% endblock %}
 {% block content %}
-    <h1>Niech się dzieje wola czeluści piekielnych, nie mogę znaleźć rymu, poskładaj nieco ofiar kadzielnych. (poniżej fora)</h1>
+    <h1>Wszechforum</h1>
     {% for thread in threads %}
-        <h1>
+        <h2>
             <a href = "{% url 'thread' slug=thread.slug %}">{{ thread.title }}</a>
-        </h1>
+        </h2>
         <p>
         {{ thread.creator }}
         </p>

@@ -40,8 +40,12 @@ INSTALLED_APPS = [
     'course',
     'users',
     'blogs',
-    'forum'
+    'forum',
+    'crispy_forms',
+    'crispy_bootstrap5'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

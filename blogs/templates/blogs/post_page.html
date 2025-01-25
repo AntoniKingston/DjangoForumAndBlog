@@ -5,11 +5,11 @@
 {% block content %}
     <section>
         <h1>{{ post.title }}</h1>
-        <p>{{ post.content }}</p>
-        <h1>Comments</h1>
+        <p class = "post-content">{{ post.content }}</p>
+        <h2>Comments</h2>
         {% for comment in comments %}
-            <h4> {{ comment }}</h4>
-            <p> {{ comment.content }}</p>
+            <h3> {{ comment }}</h3>
+            <p class = "comment-content"> {{ comment.content }}</p>
         {% endfor %}
     </section>
     <form class="form-with-validation" action="{% url 'post' slug=post.blog.slug slug2=post.slug %}" method="post">

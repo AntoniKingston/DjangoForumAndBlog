@@ -19,6 +19,7 @@ def home_view(request):
 def thread_view(request, slug):
     thread = Thread.objects.get(slug=slug)
     posts = thread.posts.all().order_by('created_at')
+    first_post = posts.first()
     if request.method == 'POST':
         form=forms.CreateThreadPost(request.POST, request.FILES)
         if form.is_valid():
@@ -31,4 +32,4 @@ def thread_view(request, slug):
             return redirect('thread', slug = slug)
     else:
         form = forms.CreateThreadPost()
-    return render(request, 'forum/thread_view.html', context={'thread' : thread, 'posts' : posts, 'form' : form})
+    return render(request, 'forum/thread_view.html', context={'thread' : thread, 'posts' : posts, 'form' : form, 'first_post' : first_post})

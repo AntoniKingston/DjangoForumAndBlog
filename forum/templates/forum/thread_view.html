@@ -3,9 +3,20 @@
     {{ thread.title }}
 {% endblock %}
 {% block content %}
+    <h1>{{ thread.title }}</h1>
+    <div class="thread-post">
+            <p class = "pawel">{{ thread.title}} <br>
+            {{ thread.creator }}</p>
+            <p class = "gawel">{{ first_post.content}}</p>
+        </div>
     {% for post in posts %}
-        <p>{{ post.content }}</p>
-        <p>{{ post.author }}</p>
+        {% if post != first_post %}
+            <div class="thread-post">
+                <p class = "pawel">Re: {{thread.title}} <br>
+                {{ post.author }}</p>
+                <p class="gawel">{{ post.content }}</p>
+            </div>
+        {% endif %}
     {% endfor %}
     <form class="form-with-validation" action="{% url 'thread' slug=thread.slug %}" method="post">
     {% csrf_token %}
