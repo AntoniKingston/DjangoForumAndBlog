@@ -18,9 +18,14 @@
             </div>
         {% endif %}
     {% endfor %}
-    <form class="form-with-validation" action="{% url 'thread' slug=thread.slug %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button>Reply</button>
+        {% if user.is_authenticated %}
+        <form class="form-with-validation" action="{% url 'thread' slug=thread.slug %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Reply</button>
     </form>
+    {% else %}
+        <h3>You need to be logged in in order to reply</h3>
+        <button class = form-submit onclick="window.location.href='/users/login';">log in</button>
+    {% endif %}
 {% endblock %}

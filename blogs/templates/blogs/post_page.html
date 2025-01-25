@@ -12,9 +12,14 @@
             <p class = "comment-content"> {{ comment.content }}</p>
         {% endfor %}
     </section>
+    {% if user.is_authenticated %}
     <form class="form-with-validation" action="{% url 'post' slug=post.blog.slug slug2=post.slug %}" method="post">
     {% csrf_token %}
     {{ form }}
     <button>Comment</button>
     </form>
+    {% else %}
+        <h3>You need to be logged in in order to comment</h3>
+        <button class = form-submit onclick="window.location.href='/users/login';">log in</button>
+    {% endif %}
 {% endblock %}

@@ -1,7 +1,8 @@
 {% extends 'layout.html' %}
+{% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 {% block content %}
-        <form class = "form-with-validation" method="POST">
+        <form class="form-with-validation" method="POST">
             {% csrf_token %}
             {{ form|crispy}}
             <button class = "form-submit">Register</button>

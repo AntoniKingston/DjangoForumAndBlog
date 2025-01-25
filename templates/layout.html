@@ -44,8 +44,13 @@
         {% block content %}
         {% endblock %}
     </main>
-    <p>
-        </p>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
     <footer>
         {% if user.is_authenticated %}
         logged in as: {{user.username}}
