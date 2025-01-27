@@ -58,7 +58,7 @@ nav {
     justify-content: space-around;
 }
 #dwoch-typow div a img{
-    max-height: 50vh;
+    height: 50vh;
 }
 #right-menu a:last-child {
   margin-right: 0;
