@@ -20,9 +20,8 @@ A basic Django website that includes simple blog and forum functionality. This p
 ## Tech Stack
 
 - **Backend:** Django 4.x
-- **Database:** SQLite (default), can be swapped with PostgreSQL or MySQL
-- **Frontend:** HTML templates with basic styling (no frontend framework)
-- **Authentication:** Django’s built-in user model
+- **Database:** SQLite 
+- **Frontend:** HTML templates with basic CSS
 
 ## Getting Started
 
